@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sen uchun 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbeee9;--ink:#3b2430;--paper:#fffaf5;--rose:#d9546f;--gold:#c8923a;--soft:#f3cfd2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1630;--ink:#f6e6e4;--paper:#2a2040;--rose:#ff8aa3;--gold:#f2c879;--soft:#4a3560}}
+:root[data-theme="dark"]{--bg:#1d1630;--ink:#f6e6e4;--paper:#2a2040;--rose:#ff8aa3;--gold:#f2c879;--soft:#4a3560}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--ink);font-family:Lora,Georgia,serif;overflow-x:hidden;
+background-image:radial-gradient(circle at 50% 0,var(--soft),transparent 60%)}
+main{max-width:30rem;margin:0 auto;padding:2rem 1.25rem 4rem;text-align:center}
+.hand{font-family:Caveat,'Segoe Script',cursive}
+h1{font-family:Caveat,cursive;font-size:2.6rem;line-height:1.1;margin:1rem 0 .4rem;font-weight:700}
+.hint{opacity:.75;margin:0 0 1.5rem}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+/* envelope */
+#env{position:relative;width:min(80vw,18rem);height:12rem;margin:1.5rem auto;background:var(--rose);border-radius:.5rem;border:0;display:block;
+box-shadow:0 .8rem 2rem rgba(120,30,60,.3);transition:transform .5s}
+#env::before{content:"";position:absolute;inset:0;border-radius:.5rem;
+background:linear-gradient(to bottom right,transparent 49.5%,rgba(0,0,0,.12) 50%) left/50% 100% no-repeat,
+linear-gradient(to bottom left,transparent 49.5%,rgba(0,0,0,.12) 50%) right/50% 100% no-repeat}
+#env .flap{position:absolute;left:0;right:0;top:0;height:60%;background:var(--rose);filter:brightness(1.12);
+clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s}
+#env .seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-30%);font-size:2.2rem;z-index:2;animation:beat 1.4s infinite}
+@keyframes beat{50%{transform:translate(-50%,-30%) scale(1.2)}}
+.open #env{transform:translateY(-1rem) scale(.9);opacity:0;height:0;margin:0;pointer-events:none;transition:all .7s}
+/* letter */
+#letter{display:none;background:var(--paper);border-radius:.4rem;padding:1.8rem 1.4rem;text-align:left;
+box-shadow:0 1rem 2.5rem rgba(120,30,60,.22);border-top:6px solid var(--rose);animation:rise .9s ease-out}
+.open #letter{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(40px) rotate(-2deg)}to{opacity:1;transform:none}}
+#letter p{font-size:1.45rem;line-height:1.35;margin:.2rem 0 .9rem;font-family:Caveat,cursive;font-weight:500}
+#letter .sign{text-align:right;color:var(--rose);font-weight:700;font-size:1.7rem}
+#more{display:none;margin:1.6rem auto 0;background:var(--rose);color:#fff;border:0;border-radius:2rem;padding:.9rem 1.6rem;font-size:1.05rem;
+box-shadow:0 .4rem 1rem rgba(217,84,111,.4)}
+.open #more{display:inline-block}
+#reasons{list-style:none;padding:0;margin:1.6rem 0 0;text-align:left}
+#reasons li{background:var(--paper);border-left:5px solid var(--gold);border-radius:.3rem;padding:.9rem 1rem;margin:.7rem 0;
+animation:rise .6s ease-out;box-shadow:0 .3rem .9rem rgba(120,30,60,.12)}
+#finale{display:none;margin-top:2rem;animation:rise .9s ease-out}
+#finale h2{font-family:Caveat,cursive;font-size:2.4rem;margin:.3rem 0;color:var(--rose)}
+#yes{background:var(--gold);color:#2a1a10;border:0;border-radius:2rem;padding:.9rem 1.8rem;font-size:1.1rem;margin-top:.8rem}
+.heart{position:fixed;bottom:-2rem;pointer-events:none;animation:up linear forwards;z-index:9}
+@keyframes up{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.petal{position:fixed;top:-2rem;pointer-events:none;opacity:.55;animation:fall linear infinite;z-index:0}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+main{position:relative;z-index:1}
+.step{display:none;margin-top:2rem;animation:rise .8s ease-out}
+.step h2{font-family:Caveat,cursive;font-size:2.1rem;margin:.2rem 0 .6rem;color:var(--rose)}
+.mood{position:relative;height:7rem}
+.mood button{position:absolute;border:0;border-radius:2rem;padding:.8rem 1.3rem;font-size:1rem;transition:left .25s,top .25s}
+#sad{background:var(--soft);color:var(--ink);left:6%;top:1rem}
+#happy{background:var(--rose);color:#fff;right:6%;top:1rem;box-shadow:0 .4rem 1rem rgba(217,84,111,.4)}
+.coupons{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.cp{perspective:600px;height:8rem;background:none;border:0;padding:0}
+.cp i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:.7rem;border-radius:.6rem;backface-visibility:hidden;transition:transform .6s;font-style:normal;font-size:1rem}
+.cp{position:relative}
+.cp .f{background:var(--gold);color:#2a1a10;font-family:Caveat,cursive;font-size:1.5rem}
+.cp .b{background:var(--paper);border:2px dashed var(--rose);transform:rotateY(180deg)}
+.cp.on .f{transform:rotateY(180deg)}.cp.on .b{transform:none}
+#game{position:relative;height:16rem;background:var(--paper);border-radius:.8rem;overflow:hidden;box-shadow:inset 0 0 0 2px var(--soft);touch-action:manipulation}
+#game span{position:absolute;font-size:2rem;cursor:pointer;user-select:none;animation:drop linear forwards}
+@keyframes drop{to{transform:translateY(17rem)}}
+#score{font-family:Caveat,cursive;font-size:1.6rem}
+.go{background:var(--rose);color:#fff;border:0;border-radius:2rem;padding:.8rem 1.4rem;font-size:1rem;margin-top:.6rem}
+#send{display:none;text-decoration:none;background:var(--rose);color:#fff;border-radius:2rem;padding:.9rem 1.6rem;margin-top:.8rem}
+</style>
+</head>
+<body>
+<main id="app">
+  <h1>Senga bir narsa bor 💌</h1>
+  <p class="hint" id="hint">Konvertga bos</p>
+  <button id="env" aria-label="Konvertni och"><span class="flap"></span><span class="seal">❤️</span></button>
+
+  <article id="letter">
+    <p>Jonim,</p>
+    <p>Bugun kayfiyating yo'qligini bilaman. Va men shu yerdaman — yoningda.</p>
+    <p>Xafa bo'lishga haqing bor. Lekin bir narsani bilib qo'y: sen kulganingda butun kunim yorishadi, shuning uchun seni kuldirmoqchiman.</p>
+    <p>Bu sahifani faqat sen uchun yasadim. Pastdagi tugmani bos 👇</p>
+    <p class="sign">Seni sevaman ❤️</p>
+  </article>
+
+  <div id="s1" class="step"><h2>Hozirgi kayfiyating qanaqa?</h2>
+<div class="mood"><button id="sad">Hali xafaman 😤</button><button id="happy">Jilmayyapman 🙂</button></div></div>
+  <div id="s2" class="step"><h2>Nega seni sevaman?</h2><button id="more" style="display:inline-block">Birinchisini och</button><ul id="reasons"></ul></div>
+  <div id="s3" class="step"><h2>Sen uchun kuponlar 🎟️</h2><p class="hint">Bosib och. Hammasi haqiqiy, va'da!</p>
+  <div class="coupons" id="cps"></div></div>
+  <div id="s4" class="step"><h2>Yuraklarni tut!</h2><div id="score">0 / 8</div><div id="game"></div><button class="go" id="start">Boshlash</button></div>
+  <section id="finale" class="step" style="margin-top:2rem"><h2>Eng muhimi…</h2><p>Sen mening eng yaxshi kunimsan. Hozir menga bir marta jilmayib qo'y 😊</p>
+  <button id="yes">Jilmaydim 🥰</button><br><a id="send" href="#">Menga xabar yubor 💌</a></section>
+</main>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var PHONE=""; // telefon raqam: +998...
+var reasons=["Sening kulgingni eshitsam, charchoqlarim yo'qoladi.","Eng yomon kunlarimda ham yonimda bo'lasan.","Sen shunchaki qizim emas, eng yaqin do'stimsan.","Sen bilan oddiy kun ham bayramga aylanadi.","Sen borligi uchun yaxshiroq inson bo'lishga harakat qilaman."];
+var coupons=[["Bepul quchoq","Istalgan vaqtda, istalgancha 🤗"],["Sevimli taom","Sen tanlaysan, men pishiraman 🍝"],["Kinoga chiqamiz","Film ham, popkorn ham sendan 🎬"],["Xafalik yo'q kuni","Bir kun butunlay sening aytganing 👑"]];
+var sets=['❤️','💖','💗','🌸','✨'];
+function hearts(n,x){for(var k=0;k<n;k++){var h=document.createElement('span');h.className='heart';h.textContent=sets[Math.floor(Math.random()*5)];
+ h.style.left=(x!=null?x+Math.random()*80-40:Math.random()*innerWidth)+'px';h.style.fontSize=(1+Math.random()*1.5)+'rem';
+ h.style.animationDuration=(3+Math.random()*3)+'s';h.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(h);
+ setTimeout(function(e){return function(){e.remove()}}(h),7000)}}
+// yumshoq gul barglari
+for(var p=0;p<10;p++){var e=document.createElement('span');e.className='petal';e.textContent='🌸';e.style.left=Math.random()*100+'vw';
+ e.style.fontSize=(.9+Math.random())+'rem';e.style.animationDuration=(12+Math.random()*10)+'s';e.style.animationDelay=(-Math.random()*20)+'s';document.body.appendChild(e)}
+function show(id){var el=$(id);el.style.display='block';setTimeout(function(){el.scrollIntoView({behavior:'smooth',block:'center'})},100)}
+// xat: qatorma-qator chiqadi
+var lines=document.querySelectorAll('#letter p');
+$('env').addEventListener('click',function(){
+ document.body.classList.add('open');$('hint').style.display='none';
+ document.querySelector('h1').textContent='Jonim, bu sen uchun';hearts(18);
+ lines.forEach(function(l,i){l.style.opacity=0;l.style.transition='opacity 1s';setTimeout(function(){l.style.opacity=1},700+i*1400)});
+ setTimeout(function(){show('s1')},700+lines.length*1400);
+});
+// qochuvchi tugma
+var sad=$('sad'),tries=0;
+function dodge(e){e.preventDefault();tries++;var box=sad.parentNode.getBoundingClientRect();
+ sad.style.left=Math.random()*(box.width-sad.offsetWidth)+'px';sad.style.top=Math.random()*(box.height-sad.offsetHeight)+'px';
+ sad.textContent=['Hali xafaman 😤','Ushlab ko\'r 😜','Qochdim!','Bo\'lmaydi 🙈','Jilmay qol 🥺'][Math.min(tries,4)]}
+sad.addEventListener('mouseover',dodge);sad.addEventListener('touchstart',dodge);sad.addEventListener('click',dodge);
+$('happy').addEventListener('click',function(){hearts(25);this.textContent='Yashasin! 🥳';show('s2')});
+// sabablar
+var i=0;$('more').addEventListener('click',function(e){
+ if(i<reasons.length){var li=document.createElement('li');li.textContent=reasons[i++];$('reasons').appendChild(li);hearts(5,e.clientX);li.scrollIntoView({behavior:'smooth',block:'center'})}
+ if(i>=reasons.length){this.style.display='none';show('s3')}else{this.textContent='Yana bittasi 💗'}});
+// kuponlar
+coupons.forEach(function(c){var b=document.createElement('button');b.className='cp';
+ b.innerHTML='<i class="f">'+c[0]+'</i><i class="b">'+c[1]+'</i>';
+ b.addEventListener('click',function(){b.classList.add('on');hearts(4,b.getBoundingClientRect().left+40);
+  if(document.querySelectorAll('.cp.on').length==coupons.length)setTimeout(function(){show('s4')},900)});$('cps').appendChild(b)});
+// o'yin
+var score=0,running=false;
+$('start').addEventListener('click',function(){if(running)return;running=true;score=0;$('score').textContent='0 / 8';this.style.display='none';
+ var made=0,t=setInterval(function(){
+  if(made>=14){clearInterval(t);setTimeout(function(){running=false;if(score<8){$('start').style.display='inline-block';$('start').textContent='Yana urinib ko\'r'}},3500);return}
+  made++;var h=document.createElement('span');h.textContent=sets[Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*85+'%';h.style.top='-2.5rem';h.style.animationDuration=(3+Math.random()*1.5)+'s';
+  var tap=function(ev){ev.preventDefault();if(h.dataset.d)return;h.dataset.d=1;h.remove();score++;$('score').textContent=score+' / 8';
+   if(score==8){hearts(40);show('finale')}};
+  h.addEventListener('touchstart',tap);h.addEventListener('mousedown',tap);$('game').appendChild(h);setTimeout(function(){h.remove()},4700)},650)});
+// oxirgi
+$('yes').addEventListener('click',function(){hearts(60);this.textContent='Rahmat, jonim! Seni sevaman ❤️';
+ var s=$('send');var MSG='Jilmaydim 🥰 Seni ham sevaman ❤️';s.href='tg://user?id=8774615237';s.style.display='inline-block';s.onclick=function(){try{navigator.clipboard.writeText(MSG)}catch(e){}s.textContent='Xabar nusxalandi, chatga qo\'yib yubor 💌'}});
+})();
+</script>
+
+</body>
+</html>
